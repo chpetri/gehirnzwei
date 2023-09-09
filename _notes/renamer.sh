@@ -1,25 +1,30 @@
 #!/bin/bash
 
-# Funktion zum Ersetzen von Leerzeichen durch Unterstriche in Dateinamen
-rename_files() {
-  for file in "$1"/*; do
-    # Überprüfen, ob der Dateiname Leerzeichen enthält
-    if [[ "$file" == *" "* ]]; then
-      # Ersetzen von Leerzeichen durch Unterstriche
-      new_file="${file// /_}"
-      mv "$file" "$new_file"
-      file="$new_file"
+input_file="Comptia220-1101.md"  # Ersetzen Sie dies durch den Namen Ihrer Markdown-Datei
+current_dir=""
+parent_dir=""
+grandparent_dir=""
+great_grandparent_dir=""
+
+while IFS= read -r line; do
+    if [[ $line == "# "* ]]; then
+        dir_name=$(echo $line | sed 's/# //; s/ /_/g')
+        mkdir -p "$dir_name"
+        great_grandparent_dir=$dir_name
+    elif [[ $line == "## "* ]]; then
+        dir_name=$(echo $line | sed 's/## //; s/ /_/g')
+        mkdir -p "$great_grandparent_dir/$dir_name"
+        grandparent_dir=$dir_name
+    elif [[ $line == "### "* ]]; then
+        dir_name=$(echo $line | sed 's/### //; s/ /_/g')
+        mkdir -p "$great_grandparent_dir/$grandparent_dir/$dir_name"
+        parent_dir=$dir_name
+    elif [[ $line == "#### "* ]]; then
+        dir_name=$(echo $line | sed 's/#### //; s/ /_/g')
+        mkdir -p "$great_grandparent_dir/$grandparent_dir/$parent_dir/$dir_name"
+        current_dir=$dir_name
+    elif [[ $line == "- [["* ]]; then
+        file_name=$(echo $line | sed 's/- \[\[//; s/\]\]//; s/ /_/g')
+        touch "$great_grandparent_dir/$grandparent_dir/$parent_dir/$current_dir/$file_name.md"
     fi
-
-    # Wenn das Element ein Verzeichnis ist, rekursiv aufrufen
-    if [ -d "$file" ]; then
-      rename_files "$file"
-    fi
-  done
-}
-
-# Startverzeichnis (hier können Sie den Pfad zum gewünschten Verzeichnis angeben)
-start_dir="/home/mrpetrisan/Schreibtisch/Comptia"
-
-# Aufruf der Funktion
-rename_files "$start_dir"
+done < "$input_file"
