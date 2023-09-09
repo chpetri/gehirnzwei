@@ -1,1 +1,0 @@
-obsidian://open?vault=Comptia&file=220-1101%2FCompTIA%20A%2B%20220-1101%2F1.0%20Mobile%20Devices%2F1.1%20Given%20a%20scenario%2C%20install%20and%20configure%20laptop%20hardware%20and%20components%2FHardware%2Fdevice%20replacement%2FBattery
