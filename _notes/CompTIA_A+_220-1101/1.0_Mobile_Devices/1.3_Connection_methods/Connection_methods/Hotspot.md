@@ -1,0 +1,4 @@
+- **Hotspot:**
+    - Converts your phone into a personal WiFi hub.
+    - Shares cellular data with other devices.
+    - Availability and costs vary based on phone model and service provider.

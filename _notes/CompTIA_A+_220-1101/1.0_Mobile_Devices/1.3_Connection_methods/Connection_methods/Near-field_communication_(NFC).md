@@ -1,0 +1,4 @@
+- **NFC (Near Field Communication):**
+    - Transfers data wirelessly over short distances.
+    - Integrated into smartphones for payments, transit, and direct data exchange.
+    - Functions as an encrypted access token or ID card.
