@@ -1,7 +1,0 @@
-- Exclusive to Apple.
-    - 8-pin digital connector.
-    - Designed for iPhone and iPad.
-- Benefits over Micro-USB:
-    - Enhanced power delivery.
-    - Reversible plug design.
-    - Streamlined architecture.

@@ -1,4 +1,0 @@
-- **Bluetooth:**
-    - Fast communication over limited ranges.
-    - Connects various devices:
-        - Smartphones, tethering, headphones, health trackers, car-phone systems, smartwatches, and external speakers.
